@@ -242,13 +242,6 @@ jobs:
         ./autogen.sh
         make -j$(nproc)
         make install
-    - name: install external dependencies
-      run: |
-          mkdir extract
-          for I in *.tar; do
-            tar -C extract -xvf $I
-          done
-          cp -r extract/* /
     - uses: actions/checkout@v4
     - name: autogen
       run: ./autogen.sh CC=gcc CXX=g++ --enable-debug
