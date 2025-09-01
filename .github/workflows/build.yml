@@ -220,17 +220,17 @@ jobs:
         ./autogen.sh
         make -j$(nproc)
         make install
-    - name: fetch libusbmuxd
-      run: |
-        git clone https://github.com/libimobiledevice/libusbmuxd.git
-        cd libusbmuxd
-        ./autogen.sh
-        make -j$(nproc)
-        make install
     - name: fetch libimobiledevice-glue
       run: |
         git clone https://github.com/libimobiledevice/libimobiledevice-glue.git
         cd libimobiledevice-glue
+        ./autogen.sh
+        make -j$(nproc)
+        make install
+    - name: fetch libusbmuxd
+      run: |
+        git clone https://github.com/libimobiledevice/libusbmuxd.git
+        cd libusbmuxd
         ./autogen.sh
         make -j$(nproc)
         make install
