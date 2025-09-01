@@ -214,12 +214,12 @@ jobs:
           echo "target_triplet=`gcc -dumpmachine`" >> $GITHUB_ENV
           git config --global core.autocrlf false
     - name: fetch libplist
-      uses: dawidd6/action-download-artifact@v6
-      with:
-        github_token: ${{secrets.GITHUB_TOKEN}}
-        workflow: build.yml
-        name: libplist-latest_${{ matrix.arch }}-${{ env.dest }}
-        repo: libimobiledevice/libplist
+      run: |
+        git clone https://github.com/libimobiledevice/libplist.git
+        cd libplist
+        ./autogen.sh
+        make -j$(nproc)
+        make install
     - name: fetch libusbmuxd
       uses: dawidd6/action-download-artifact@v6
       with:
