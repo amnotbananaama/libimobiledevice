@@ -199,6 +199,7 @@ jobs:
           mingw-w64-clang-${{ matrix.arch }}-gcc
           mingw-w64-clang-${{ matrix.arch }}-pkg-config
           mingw-w64-clang-${{ matrix.arch }}-openssl
+          mingw-w64-clang-aarch64-curl 
           make
           libtool
           autoconf
