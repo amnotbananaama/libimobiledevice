@@ -191,8 +191,8 @@ jobs:
     - uses: msys2/setup-msys2@v2.29.0
       with:
         msystem: ${{ matrix.msystem }}
-        release: false
-        update: false
+        release: true
+        update: true
         install: >-
           base-devel
           git
@@ -203,6 +203,10 @@ jobs:
           libtool
           autoconf
           automake-wrapper
+        pacboy: >-
+           toolchain:p
+           openssl:p
+ 
     - name: prepare environment
       run: |
           dest=`echo ${{ matrix.msystem }} |tr [:upper:] [:lower:]`
