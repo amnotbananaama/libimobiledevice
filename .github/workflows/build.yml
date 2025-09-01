@@ -190,15 +190,15 @@ jobs:
     steps:
     - uses: msys2/setup-msys2@v2.29.0
       with:
-        msystem: ${{ matrix.msystem }}
+        msystem: CLANGARM64
         release: true
         update: true
         install: >-
           base-devel
           git
-          mingw-w64-${{ matrix.arch }}-gcc
-          mingw-w64-${{ matrix.arch }}-pkg-config
-          mingw-w64-${{ matrix.arch }}-openssl
+          mingw-w64-clang-${{ matrix.arch }}-gcc
+          mingw-w64-clang-${{ matrix.arch }}-pkg-config
+          mingw-w64-clang-${{ matrix.arch }}-openssl
           make
           libtool
           autoconf
