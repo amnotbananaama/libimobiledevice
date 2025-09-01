@@ -253,7 +253,9 @@ jobs:
       run: |
           mkdir -p dest
           DESTDIR=`pwd`/dest make install
-          tar -C dest -cf libimobiledevice.tar ${{ env.dest }}
+          installed_dir=$(ls dest)
+          echo "Installed folder detected: $installed_dir"
+          tar -C dest -cf libimobiledevice.tar "$installed_dir"
     - name: publish artifact
       uses: actions/upload-artifact@v4
       with:
